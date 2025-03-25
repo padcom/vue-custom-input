@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module" src="./src/main.ts"></script>
+
+  <form id="form">
+    <label for="Field1">Field1</label>
+    <input type="text" id="Field1" name="Field1" value="abc">
+    <label for="Field2">Field2</label>
+    <custom-input type="text" id="Field2" name="Field2" value="xyz"></custom-input>
+    <input type="submit">
+  </form>
+
+  <div id="debug"></div>
+
+  <script>
+    document.querySelector('#form').addEventListener('submit', e => {
+      e.preventDefault()
+      console.log(Object.fromEntries(new FormData(e.target)))
+    })
+  </script>
+</body>
+</html>
